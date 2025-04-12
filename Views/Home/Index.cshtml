@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0" />
+	<title>Madame moka</title>
+	<link rel="icon" href="@Url.Content("~/img/logo madame moka.png")" type="image/png">
+
+	<link rel="stylesheet" href="~/css/styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+	<header>
+		<div class="container-hero">
+			<div class="container hero">
+
+				<div class="container-logo">
+					<i> <img src="~/img/logo madame moka.png" alt=""></i>
+					<h1 class="logo"><a href="">Madeame Moka</a></h1>
+				</div>
+				<div class="container-shopping-cart">
+					<a href="/carrito/carrito">
+						<i class="fa-solid fa-shopping-cart"></i>
+					</a>
+				</div>
+
+				<div class="container-user">
+					@if (Context.Session.GetInt32("_UserId") != null)
+					{
+						<!-- Usuario autenticado -->
+						<a href="/usuario/usuario">
+							<i class="fa-solid fa-user"></i>
+						</a>
+					}
+					else
+					{
+						<!-- Usuario no autenticado -->
+						<a href="/Login/">
+							<i class="fa-solid fa-user"></i>
+						</a>
+					}
+				</div>
+
+
+			</div>
+		</div>
+	</header>
+
+	<section class="banner" style="background-image: linear-gradient(100deg, #000000, #00000020), url('@Url.Content("~/img/banner.jpg")');">
+		<div class="content-banner">
+			<p>Café Delicioso</p>
+			<h2>100% Natural <br />Café Fresco</h2>
+			<a href="eventos.html">Ver mas</a>
+		</div>
+	</section>
+
+
+	<main class="main-content">
+
+
+		<section class="container top-categories">
+			<h1 class="heading-1">Mejores Categorías</h1>
+			<div class="container-categories">
+				<div class="card-category category-moca"
+					 style="background-image: linear-gradient(#00000080, #00000080), url('@Url.Content("~/img/moca-category.jpg")');">
+					<p>Café moca</p>
+					<span>Ver más</span>
+				</div>
+				<div class="card-category category-expreso"
+					 style="background-image: linear-gradient(#00000080, #00000080), url('@Url.Content("~/img/expreso-category.jpg")');">
+					<p>Expreso Americano</p>
+					<span>Ver más</span>
+				</div>
+				<div class="card-category category-capuchino"
+					 style="background-image: linear-gradient(#00000080, #00000080), url('@Url.Content("~/img/capuchino-category.jpg")');">
+					<p>Capuchino</p>
+					<span>Ver más</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="container top-products">
+			<h1 class="heading-1">Mejores Productos</h1>
+			<div class="container-products">
+				<!-- Producto 1 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/cafe-irish.jpg" alt="Cafe Irish" />
+					</div>
+					<div class="content-card-product">
+						<h3>Cafe Irlanders</h3>
+					</div>
+				</div>
+				<!-- Producto 2 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/cafe-ingles.jpg" alt="Cafe Inglés" />
+					</div>
+					<div class="content-card-product">
+						<h3>Cafe Inglés</h3>
+					</div>
+				</div>
+				<!-- Producto 3 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/cafe-australiano.jpg" alt="Cafe Australiano" />
+					</div>
+					<div class="content-card-product">
+						<h3>Cafe Machiato</h3>
+					</div>
+				</div>
+				<!-- Producto 4 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/cafe-helado.jpg" alt="Cafe Helado" />
+					</div>
+					<div class="content-card-product">
+						<h3>Cafe Helado</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="gallery">
+			<img src="~/img/gallery1.jpg"
+				 alt="Gallery Img1"
+				 class="gallery-img-1" /><img src="~/img/gallery2.jpg"
+									  alt="Gallery Img2"
+									  class="gallery-img-2" /><img src="~/img/gallery3.jpg"
+										alt="Gallery Img3"
+										class="gallery-img-3" /><img src="~/img/gallery4.jpg"
+														   alt="Gallery Img4"
+														   class="gallery-img-4" /><img src="~/img/gallery5.jpg"
+																						alt="Gallery Img5"
+																						class="gallery-img-5" />
+		</section>
+
+		<section class="container specials">
+			<h1 class="heading-1">Especiales</h1>
+
+			<div class="container-products">
+				<!-- Producto 1 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/quequenaranja.jpg" alt="Queque de naranja" />
+						<div class="button-group">
+						</div>
+					</div>
+					<div class="content-card-product">
+
+						<h3>Queque de naranja</h3>
+					</div>
+				</div>
+				<!-- Producto 2 -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/rollos de canela.jpg"
+							 alt="Rollos de canela" />
+
+					</div>
+					<div class="content-card-product">
+
+						<h3>Rollos de canela</h3>
+
+
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/sandwich jamon y queso.jpg" alt="sandwich jamon y queso" />
+
+					</div>
+					<div class="content-card-product">
+
+						<h3>Sandwich jamon y queso</h3>
+					</div>
+				</div>
+				<!--  -->
+				<div class="card-product">
+					<div class="container-img">
+						<img src="~/img/crepa.jpg" alt="Crepa" />
+
+					</div>
+					<div class="content-card-product">
+
+						<h3>Crepa dulce</h3>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+	</main>
+
+	<section class="section">
+		<div class="container container-section">
+			<div class="menu-section">
+				<div class="contact-info">
+					<p class="title-section">Información de Contacto</p>
+					<ul>
+						<li> Direccion: Av. 2, Calle 6, Cartago Centro </li>
+						<li>Teléfono:+506 2552 6003</li>
+						<li>Correo: contacto@madememoka.com</li>
+					</ul>
+
+				</div>
+
+				<div class="information">
+					<p class="title-section">Información</p>
+					<ul>
+						<li><a href="#">Acerca de Nosotros</a></li>
+						<li><a href="#">Contactános</a></li>
+					</ul>
+				</div>
+
+
+
+
+			</div>
+
+
+	</section>
+
+	<footer>
+
+
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/eventos/eventos">
+					<img src="~/img/eventos.png" alt="eventos" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Eventos</h3>
+			</div>
+		</div>
+
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/Pickup/pedidos">
+					<img src="~/img/pedidos.png" alt="pick up" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Pick Up</h3>
+			</div>
+		</div>
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/menu/menu">
+					<img src="~/img/menu.png" alt="menu" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Menú</h3>
+			</div>
+		</div>
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/reservas/reservas">
+					<img src="~/img/reserva.png" alt="reservas" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Reservas</h3>
+			</div>
+		</div>
+	</footer>
+
+
+
+</body>
+
+
+</html>

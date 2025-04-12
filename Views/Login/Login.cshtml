@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/stylesipmrc.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+        <div class="login-container">
+    <h2>Inicio de sesión</h2>
+    
+    <!-- Contenedor del formulario principal -->
+    <div id="loginForm">
+        <label for="usuario">Usuario</label>
+        <input type="email" id="usuario" placeholder="name@example.com" required>
+
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" required>
+
+            <button type="button" onclick="verificarCredenciales()">Iniciar sesión</button>
+        </div>
+
+    <!-- Sección de código de verificación (oculta inicialmente) -->
+    <div id="codigoVerificacion" style="display: none;">
+        <label for="codigo">Código de verificación</label>
+        <input type="text" id="codigo" placeholder="123456">
+        <button type="button" onclick="verificarCodigo()">Verificar código</button>
+    </div>
+
+    <div class="register-link">
+        ¿No tienes una cuenta? <a href="/Registro/">Registrarme</a>
+    </div>
+    <div class="password-link">
+        ¿Olvidaste la contraseña? <a href="/Password/password">Recuperar contraseña</a>
+    </div>
+</div>
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+    <script>
+        async function verificarCredenciales() {
+            const correo = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+
+            try {
+                const response = await fetch('/Login/VerificarCredenciales', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ correo, contrasena })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('codigoVerificacion').style.display = 'block';
+                    document.getElementById('loginForm').style.display = 'none';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión: ' + error.message);
+            }
+        }
+
+        async function verificarCodigo() {
+            const codigo = document.getElementById('codigo').value;
+            const correo = document.getElementById('usuario').value;
+
+            try {
+                const response = await fetch('/Login/VerificarCodigo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ correo, codigoIngresado: codigo })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.success) {
+                    window.location.href = '/usuario/Usuario';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión: ' + error.message);
+            }
+        }
+    </script>
+</body>
+
+
+</html>
+
+

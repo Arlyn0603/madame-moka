@@ -1,0 +1,10 @@
+# Archivos y carpetas a ignorar
+.vs/
+*.user
+*.suo
+bin/
+obj/
+*.log
+*.dbmdl
+*.vsidx
+*.DS_Store

@@ -1,0 +1,203 @@
+﻿@model madame_moka.Models.Evento
+
+@{
+    ViewData["Title"] = "Eventos";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/stylesrye.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="container paquetes">
+            <h1 class="heading-1">Eventos</h1>
+            <div class="container-paquetes">
+                <div class="card-event">
+                    <div class="container-imgs">
+                        <img src="~/img/boda.jpg" alt="boda" />
+                    </div>
+                    <div class="content-card">
+                        <h3>Boda</h3>
+                        <p>Celebra tu día especial con nosotros. Ofrecemos un ambiente elegante y acogedor, perfecto para tu boda. Disfruta de un servicio excepcional y una experiencia inolvidable.</p>
+                    </div>
+                </div>
+                <div class="card-event">
+                    <div class="container-imgs">
+                        <img src="~/img/fiesta.jpg" alt="fiesta" />
+                    </div>
+                    <div class="content-card">
+                        <h3>Cumpleaños</h3>
+                        <p>Haz de tu cumpleaños un día inolvidable con nosotros. Disfruta de un ambiente festivo, deliciosa comida y un servicio excepcional para ti y tus invitados.</p>
+                    </div>
+                </div>
+                <div class="card-event">
+                    <div class="container-imgs">
+                        <img src="~/img/babyshower.jpg" alt="babyshower" />
+                    </div>
+                    <div class="content-card">
+                        <h3>Baby Shower</h3>
+                        <p>Celebra la llegada de tu bebé con nosotros. Ofrecemos un ambiente acogedor y encantador, perfecto para tu Baby Shower. Disfruta de una experiencia memorable con tus seres queridos.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-form">
+                <h2>Reserva tu evento</h2>
+                <form action="#" method="post">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="correo">Correo</label>
+                    <input type="email" id="correo" name="correo" placeholder="name@example.com" required>
+
+                    <label for="cantidad">Cantidad</label>
+                    <input type="range" id="cantidad" name="cantidad" min="1" max="100">
+                    <input type="number" id="cantidad-num" name="cantidad-num" min="1" max="100" readonly>
+
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" required>
+
+                    <label for="hora">Hora</label>
+                    <select id="hora" name="hora" required>
+                        <option value="">Seleccione una hora</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="18:00">6:00 PM</option>
+                    </select>
+
+                    <label>Tipo:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="boda" name="tipo" value="boda">
+                        <label for="boda">Boda</label>
+
+                        <input type="checkbox" id="cumpleanos" name="tipo" value="cumpleanos">
+                        <label for="cumpleanos">Cumpleaños</label>
+
+                        <input type="checkbox" id="babyshower" name="tipo" value="babyshower">
+                        <label for="babyshower">Baby Shower</label>
+                    </div>
+
+                    <button type="submit" class="btn-reservar">Reservar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <section class="section">
+        <div class="container container-section">
+            <div class="menu-section">
+                <div class="contact-info">
+                    <p class="title-section">Información de Contacto</p>
+                    <ul>
+                        <li>Direccion: Av. 2, Calle 6, Cartago Centro</li>
+                        <li>Teléfono:+506 2552 6003</li>
+                        <li>Correo: contacto@madememoka.com</li>
+                    </ul>
+                </div>
+
+                <div class="information">
+                    <p class="title-section">Información</p>
+                    <ul>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Contactános</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#cantidad').on('input', function() {
+                $('#cantidad-num').val($(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

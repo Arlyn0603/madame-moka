@@ -1,0 +1,512 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #c7a17a;
+    --background-color: #f9f5f0;
+    --dark-color: #151515;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ********************************** */
+/*             UTILIDADES             */
+/* ********************************** */
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.heading-1 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+/* ********************************** */
+/*               HEADER               */
+/* ********************************** */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Ajusta el color de fondo para que se vea bien */
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    padding: 10px 20px; /* Ajusta el espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil para separarlo del contenido */
+}
+
+.container-hero {
+    background-color: var(--background-color);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+
+
+
+.container-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaciado entre el logo y el texto */
+    justify-content: flex-start; /* Alinea a la izquierda */
+}
+
+    .container-logo img {
+        width: 80px; /* Ajusta el tamaño del logo */
+        height: auto;
+        border-radius: 50%; /* Si la imagen es cuadrada, la hace circular */
+    }
+
+    .container-logo h1 {
+        margin: 0; /* Elimina márgenes predeterminados */
+    }
+
+        .container-logo h1 a {
+            text-decoration: none;
+            color: #000;
+            font-size: 2rem; /* Tamaño ajustado para mejor apariencia */
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+
+.container-user {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+    .container-user .fa-user {
+        font-size: 3rem;
+        color: var(--primary-color);
+        padding-right: 2.5rem;
+        border-right: 1px solid #e2e2e2;
+    }
+
+.container-user {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+}
+
+.container-shopping-cart {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.container .fa-shopping-cart {
+    font-size: 3rem;
+    color: var(--primary-color);
+    padding-right: 2.5rem;
+    border-right: 1px solid #e2e2e2;
+}
+
+.container-shopping-cart {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+}
+
+.container-house {
+    display: flex;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.container .fa-house {
+    font-size: 3rem;
+    color: var(--primary-color);
+    padding-right: 2.5rem;
+    border-right: 1px solid #e2e2e2;
+}
+
+.container-house {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    visibility: visible !important;
+}
+
+
+
+
+/* Estilos generales */
+/* Estilos generales */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    background-color: #f9f9f9;
+    padding: 2rem;
+    margin-top: 120px; /* Ajusta este valor según la altura del header */
+}
+
+.container.paquetes {
+    width: 100%;
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor */
+    text-align: center;
+}
+
+.heading-1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.container-paquetes {
+    display: flex;
+    flex-direction: column; /* Alinea las tarjetas verticalmente */
+    gap: 1.5rem;
+}
+
+.card-event {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegura que las tarjetas ocupen todo el ancho disponible */
+
+    width: 100%;
+    max-width: 900px; /* Aumenta el tamaño máximo */
+}
+
+
+    .card-event:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+.container-imgs img {
+    width: 50%; /* Mantiene el ancho al 100% del contenedor */
+    height: 100px; /* Aumenta la altura */
+    object-fit: cover; /* Evita la distorsión y recorta la imagen */
+    border-radius: 10px; /* Redondea los bordes */
+}
+
+
+.content-card {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+    .content-card h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .content-card p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+.btn-ver-mas {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-ver-mas:hover {
+        background-color: darken(var(--primary-color), 10%);
+    }
+
+
+.container-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+
+    .container-form h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .container-form label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .container-form input,
+    .container-form select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-reservar {
+    margin-top: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+    .btn-reservar:hover {
+        background: #a3815f;
+    }
+
+
+
+/* ********************************** */
+/*               footer               */
+/* ********************************** */
+/* Estilos generales */
+/* Estilos generales */
+footer {
+    position: fixed; /* Fija el footer en la pantalla */
+    bottom: 0; /* Lo coloca en la parte inferior */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: var(--primary-color); /* Color de fondo */
+    display: flex; /* Alinea los elementos horizontalmente */
+    justify-content: space-around; /* Distribuye el espacio entre los elementos */
+    padding: 10px 0; /* Espaciado interno */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para resaltar el footer */
+    z-index: 1000; /* Asegura que el footer esté por encima de otros elementos */
+}
+
+.card-menu {
+    text-align: center; /* Centra el contenido */
+    flex: 1; /* Hace que cada card ocupe el mismo espacio */
+}
+
+.container-img img {
+    width: 30px; /* Tamaño pequeño para las imágenes */
+    height: 30px; /* Tamaño pequeño para las imágenes */
+    object-fit: contain; /* Asegura que la imagen se ajuste */
+}
+
+.content-card-product h3 {
+    margin: 5px 0 0; /* Espaciado para el texto */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    color: #333; /* Color del texto */
+    font-weight: normal; /* Estilo de fuente normal */
+}
+
+
+/* ********************************** */
+/*       MEDIA QUERIES -- 768px       */
+/* ********************************** */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .hero {
+        padding: 2rem;
+    }
+
+    .customer-support {
+        display: none;
+    }
+
+    .content-shopping-cart {
+        display: none;
+    }
+
+    .navbar {
+        padding: 1rem 2rem;
+    }
+
+        .navbar .fa-bars {
+            display: block;
+            color: #fff;
+            font-size: 3rem;
+        }
+
+    .menu {
+        display: none;
+    }
+
+    .content-banner {
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 25rem 0;
+    }
+
+    .container-features {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 3rem 2rem;
+    }
+
+    .card-feature {
+        padding: 2rem;
+    }
+
+    .heading-1 {
+        font-size: 2.4rem;
+    }
+
+    .card-category {
+        height: 12rem;
+    }
+
+        .card-category p {
+            font-size: 2rem;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .card-category span {
+            font-size: 1.4rem;
+        }
+
+    .container-options {
+        align-items: center;
+    }
+
+        .container-options span {
+            text-align: center;
+            padding: 1rem 2rem;
+        }
+
+    .container-products {
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    }
+
+    .gallery {
+        grid-template-rows: repeat(2, 15rem);
+    }
+
+    .container-blogs {
+        overflow: hidden;
+        grid-template-columns: 1fr 1fr;
+        height: 52rem;
+    }
+
+    .menu-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .copyright {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+/* ********************************** */
+/*       MEDIA QUERIES -- 468px       */
+/* ********************************** */
+@media (max-width: 468px) {
+    html {
+        font-size: 42.5%;
+    }
+
+    .content-banner {
+        max-width: 50rem;
+        padding: 22rem 0;
+    }
+
+    .heading-1 {
+        font-size: 2.8rem;
+    }
+
+    .card-feature {
+        flex-direction: column;
+        border-radius: 2rem;
+    }
+
+    .feature-content {
+        align-items: center;
+    }
+
+        .feature-content p {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .feature-content span {
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+    .container-options span {
+        font-size: 1.8rem;
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+    }
+
+    .container-products {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 1rem;
+    }
+
+    .container-img .discount {
+        font-size: 2rem;
+    }
+
+    .content-card-product h3 {
+        font-size: 2.2rem;
+    }
+
+
+    .btn-read-more {
+        font-size: 1.8rem;
+    }
+
+    .contact-info ul,
+    .information ul,
+    .my-account ul {
+        display: none;
+    }
+
+    .contact-info {
+        align-items: center;
+    }
+
+    .menu-section {
+        grid-template-columns: 1fr;
+    }
+
+    .content p {
+        font-size: 1.6rem;
+    }
+}

@@ -1,0 +1,130 @@
+﻿@model List<madame_moka.Models.Reserva>
+
+@{
+	ViewData["Title"] = "i_reservas";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1.0" />
+	<title>Madame moka</title>
+	<link rel="stylesheet" href="~/css/stylesipmrc.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+	<header>
+		<div class="container-hero">
+			<div class="container hero">
+				<div class="container-logo">
+					<i> <img src="~/img/logo madame moka.png" alt=""></i>
+					<h1 class="logo"><a href="">Madame Moka</a></h1>
+				</div>
+				<div class="container-house">
+					<a href="/home/index">
+						<i class="fa-solid fa-house"></i>
+					</a>
+				</div>
+
+
+				<div class="container-shopping-cart">
+					<a href="/carrito/carrito">
+						<i class="fa-solid fa-shopping-cart"></i>
+					</a>
+				</div>
+
+
+				<div class="container-user">
+					<a href="/usuario/usuario">
+						<i class="fa-solid fa-user"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	
+
+
+	<main class="container">
+		<h2 class="heading-2">Reservas Registradas</h2>
+
+		@if (Model != null && Model.Count > 0)
+		{
+			@foreach (var reserva in Model)
+			{
+				<div class="evento-card">
+					<h3><strong>Tipo de reserva:</strong> @reserva.Tipo</h3>
+					<p><strong>Cantidad:</strong> @reserva.Cantidad</p>
+					<p><strong>Fecha:</strong> @reserva.Fecha.ToString("dd/MM/yyyy")</p>
+					<p><strong>Hora:</strong> @reserva.Hora</p>
+					<hr>
+				</div>
+			}
+		}
+		else
+		{
+			<p>No hay reservas registradas.</p>
+		}
+	</main>
+
+
+	<footer>
+
+
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/eventos/eventos">
+					<img src="~/img/eventos.png" alt="eventos" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Eventos</h3>
+			</div>
+		</div>
+
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/Pickup/pedidos">
+					<img src="~/img/pedidos.png" alt="pick up" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Pick Up</h3>
+			</div>
+		</div>
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/menu/menu">
+					<img src="~/img/menu.png" alt="menu" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Menú</h3>
+			</div>
+		</div>
+		<div class="card-menu">
+			<div class="container-img">
+				<a href="/reservas/reservas">
+					<img src="~/img/reserva.png" alt="reservas" />
+				</a>
+			</div>
+			<div class="content-card-product">
+				<h3>Reservas</h3>
+			</div>
+		</div>
+	</footer>
+
+
+
+</body>
+
+
+</html>

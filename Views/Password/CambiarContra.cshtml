@@ -1,0 +1,183 @@
+﻿@model List<madame_moka.Models.Usuario>
+
+
+ @{
+            ViewData["Title"] = "Cambiar Contraseña";
+        }
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/stylesipmrc.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <!-- Imagen de usuario -->
+        <div class="profile-image">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        
+        <!-- Título -->
+        <h2 class="profile-title">Cambiar contraseña</h2>
+
+       
+
+        <div class="container">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            }
+            else
+            {
+            <form id="formCambioContrasena" class="mt-4">
+                @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>Nueva Contraseña:</label>
+                        <input type="password" id="nuevaContrasena" class="form-control" required>
+                    </div>
+                    <button type="button" class="save-button" onclick="actualizarContrasena()">
+                        Cambiar Contraseña
+                    </button>
+                </form>
+            }
+        </div>
+        </div>
+
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function actualizarContrasena() {
+            const nuevaContrasena = document.getElementById("nuevaContrasena").value;
+
+            if (!nuevaContrasena) {
+                alert("⚠️ Ingresa una contraseña válida");
+                return;
+            }
+
+            // Obtener token antifalsificación si existe
+            const tokenElement = document.querySelector('input[name="__RequestVerificationToken"]');
+            const token = tokenElement ? tokenElement.value : "";
+        fetch("/ActualizarContrasena", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "RequestVerificationToken": token  // Si tienes protección CSRF en ASP.NET Core
+            },
+            body: JSON.stringify({ nuevaContrasena })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();  // Lee la respuesta como texto primero
+        })
+        .then(text => {
+            try {
+                return JSON.parse(text);  // Intenta parsear como JSON
+            } catch {
+                throw new Error("Respuesta no es JSON válido");
+            }
+        })
+        .then(data => {
+            if (data.success) {
+                alert("✅ Contraseña actualizada correctamente");
+                window.location.href = "/Login";
+            } else {
+                alert("❌ Error: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error en la solicitud:", error);
+            alert(`⚠️ Ocurrió un error: ${error.message}`);
+        });
+
+        }
+    </script>
+
+
+</body>
+</html>

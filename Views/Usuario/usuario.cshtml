@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "usuario";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="profile-container">
+        <!-- 🎯 Imagen de usuario -->
+        <div class="profile-image">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- 🎯 Nombre de usuario -->
+        <h2 class="profile-name">Nombre</h2>
+
+        <!-- 🎯 Opciones de perfil -->
+        <div class="profile-options">
+            <a href="/informacion/informacion" class="profile-option">
+                <i class="fa-solid fa-user"></i>
+                Información personal
+            </a>
+
+            <a href="/I_eventos/i_eventos" class="profile-option">
+                <i class="fa-solid fa-calendar-days"></i>
+                Eventos
+            </a>
+
+            <a href="/I_pedidos/i_pedidos" class="profile-option">
+                <i class="fa-solid fa-receipt"></i>
+                Pedidos
+            </a>
+
+            <a href="/I_reservas/i_reservas" class="profile-option">
+                <i class="fa-solid fa-utensils"></i>
+                Reservas
+            </a>
+        </div>
+    </div>
+
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+
+</html>

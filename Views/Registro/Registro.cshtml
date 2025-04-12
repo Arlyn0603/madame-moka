@@ -1,0 +1,528 @@
+﻿@model madame_moka.Models.Usuario
+
+@{
+    ViewData["Title"] = "Registro";
+}
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-success">@ViewBag.Mensaje</div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/stylesipmrc.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .keyboard {
+            display: none;
+            position: absolute;
+            bottom: -150px; /*  Lo baja más en la pantalla */
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            padding: 15px;
+            border-radius: 10px;
+            width: 220px;
+            text-align: center;
+            z-index: 1000; /* Asegura que esté sobre otros elementos */
+        }
+
+
+        .key {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+            font-size: 24px;
+            color: white;
+            background: #555;
+            border-radius: 5px;
+            line-height: 60px;
+            cursor: pointer;
+        }
+
+            .key:active {
+                background: #777;
+            }
+
+            .key.zero {
+                width: 130px;
+            }
+
+            .key.delete {
+                background: #a00;
+            }
+
+        .keyboard-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        /* Estilos para inputs y selects */
+        .container-form select,
+        select#pais,
+        select#provincia,
+        select#canton,
+        select#distrito {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <!-- Imagen de usuario -->
+        <div class="profile-image">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <!-- Título -->
+        <h2 class="profile-title">Información personal</h2>
+
+        <form asp-action="RegistrarUsuario" asp-controller="Registro" method="post">
+            <input type="text" asp-for="Nombre" placeholder="Nombre">
+            <input type="text" name="Telefono" placeholder="Teléfono">
+            <input type="email" asp-for="Correo" placeholder="Correo electrónico">
+
+            <!-- Input de Edad con teclado numérico -->
+            <div class="keyboard-container">
+                <input type="text" id="edadInput" name="Edad" placeholder="Edad" readonly onclick="showKeyboard()">
+                <div class="keyboard" id="keyboard">
+                    <div class="key" onclick="addNumber(1)">1</div>
+                    <div class="key" onclick="addNumber(2)">2</div>
+                    <div class="key" onclick="addNumber(3)">3</div>
+                    <div class="key" onclick="addNumber(4)">4</div>
+                    <div class="key" onclick="addNumber(5)">5</div>
+                    <div class="key" onclick="addNumber(6)">6</div>
+                    <div class="key" onclick="addNumber(7)">7</div>
+                    <div class="key" onclick="addNumber(8)">8</div>
+                    <div class="key" onclick="addNumber(9)">9</div>
+                    <div class="key zero" onclick="addNumber(0)">0</div>
+                    <div class="key delete" onclick="deleteNumber()">⌫</div>
+                </div>
+            </div>
+
+            <input type="password" name="Contrasena" placeholder="Contraseña" required>
+            <!-- Selección de Ubicaciones -->
+            <label for="pais">País:</label>
+            <select id="pais" name="Pais">
+                <option value="">Seleccione un país</option>
+            </select>
+
+            <label for="provincia">Provincia:</label>
+            <select id="provincia" name="Provincia" disabled>
+                <option value="">Seleccione una provincia</option>
+            </select>
+
+            <label for="canton">Cantón:</label>
+            <select id="canton" name="Canton" disabled>
+                <option value="">Seleccione un cantón</option>
+            </select>
+
+            <label for="distrito">Distrito:</label>
+            <select id="distrito" name="Distrito" disabled>
+                <option value="">Seleccione un distrito</option>
+            </select>
+
+
+
+
+            <!-- Campos para respuestas -->
+            <input type="hidden" name="Pregunta1" value="¿Cómo se llama la ciudad de tu infancia?">
+            <input type="text" name="Respuesta1" placeholder="¿Cómo se llama la ciudad de tu infancia?" required>
+
+            <input type="hidden" name="Pregunta2" value="Nombre de tu abuela materna">
+            <input type="text" name="Respuesta2" placeholder="Nombre de tu abuela materna" required>
+
+            <input type="hidden" name="Pregunta3" value="Nombre de tu mascota">
+            <input type="text" name="Respuesta3" placeholder="Nombre de tu mascota" required>
+
+
+            <button type="button" onclick="verificarCorreo()"
+                    class="save-button" id="verificarCorreoBtn">
+                Verificar Correo
+            </button>
+
+            <p id="correo-msg"></p>
+
+            <!-- Contenedor de verificación (única instancia) -->
+            <div id="codigoVerificacionContainer" style="display: none;">
+                <input type="text" id="CodigoVerificacion" name="Token_verificacion" placeholder="Código de 6 dígitos" required>
+
+                <button type="button" class="save-button" id="validarCodigoBtn">Validar Código</button>
+                <button type="button" class="save-button" id="reenviarCodigoBtn" style="display: none;">Reenviar Código</button>
+                <p id="temporizador"></p>
+            </div>
+
+            <div id="campos-registro" style="display: none;">
+                <button type="submit" class="save-button">Registrar</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showKeyboard() {
+            document.getElementById("keyboard").style.display = "block";
+        }
+
+        function addNumber(num) {
+            let display = document.getElementById("edadInput");
+            if (display.value.length < 3) { // Limita a 3 dígitos (ej. 120 años)
+                display.value += num;
+            }
+        }
+
+        function deleteNumber() {
+            let display = document.getElementById("edadInput");
+            display.value = display.value.slice(0, -1);
+        }
+
+        // Ocultar teclado si se hace clic fuera del input o del teclado
+        document.addEventListener("click", function (event) {
+            let keyboard = document.getElementById("keyboard");
+            let input = document.getElementById("edadInput");
+
+            if (!keyboard.contains(event.target) && event.target !== input) {
+                keyboard.style.display = "none";
+            }
+        });
+
+
+
+       
+            // Función de verificación de correo (actualizada)
+            function verificarCorreo() {
+                let correo = document.querySelector("input[name='Correo']").value.trim();
+
+                if (!correo) {
+                    alert("⚠️ Ingrese un correo electrónico válido.");
+                    return;
+                }
+
+                console.log("📤 Enviando solicitud de código a:", correo);
+
+                   fetch("/Registro/EnviarCodigoVerificacion", {
+        method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ correo: correo })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("📥 Respuesta del servidor:", data);
+
+                    if (data.success) {
+                        alert("📧 Código enviado a su correo.");
+                        document.getElementById("codigoVerificacionContainer").style.display = "block";
+                        iniciarTemporizador();
+                    } else {
+                        alert("❌ " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("❌ Error:", error);
+                    alert("⚠️ Error al enviar código.");
+                });
+            }
+
+            // Temporizador
+            let tiempoRestante = 120;
+            let temporizadorIntervalo;
+
+            function iniciarTemporizador() {
+                tiempoRestante = 120;
+                clearInterval(temporizadorIntervalo);
+                document.getElementById("reenviarCodigoBtn").style.display = "none";
+
+                temporizadorIntervalo = setInterval(() => {
+                    let minutos = Math.floor(tiempoRestante / 60);
+                    let segundos = tiempoRestante % 60;
+                    document.getElementById("temporizador").innerHTML =
+                        `⏳ Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+
+                    if (tiempoRestante <= 0) {
+                        clearInterval(temporizadorIntervalo);
+                        document.getElementById("temporizador").innerHTML = "⏳ Código expirado. Solicita uno nuevo.";
+                        document.getElementById("reenviarCodigoBtn").style.display = "inline-block";
+                    }
+                    tiempoRestante--;
+                }, 1000);
+            }
+
+            // Event listeners
+            document.getElementById("reenviarCodigoBtn").addEventListener("click", function() {
+                verificarCorreo();
+                this.style.display = "none";
+            });
+
+            document.getElementById("validarCodigoBtn").addEventListener("click", function() {
+                let codigoIngresado = document.getElementById("CodigoVerificacion").value.trim();
+
+                if (!codigoIngresado) {
+                    alert("⚠️ Ingrese el código de verificación.");
+                    return;
+                }
+
+                    fetch("/Registro/VerificarCodigo", {
+        method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ codigoIngresado: codigoIngresado })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("✅ Correo verificado correctamente.");
+                        document.getElementById("campos-registro").style.display = "block";
+                        clearInterval(temporizadorIntervalo);
+                    } else {
+                        alert("❌ " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("❌ Error:", error);
+                    alert("⚠️ Error al verificar código.");
+                });
+            });
+
+            // Resto del código del teclado numérico (se mantiene igual)
+            function showKeyboard() {
+                document.getElementById("keyboard").style.display = "block";
+            }
+
+            function addNumber(num) {
+                let display = document.getElementById("edadInput");
+                if (display.value.length < 3) {
+                    display.value += num;
+                }
+            }
+
+            function deleteNumber() {
+                let display = document.getElementById("edadInput");
+                display.value = display.value.slice(0, -1);
+            }
+
+            document.addEventListener("click", function(event) {
+                let keyboard = document.getElementById("keyboard");
+                let input = document.getElementById("edadInput");
+
+                if (!keyboard.contains(event.target) && event.target !== input) {
+                    keyboard.style.display = "none";
+                }
+            });
+            //UBICACIONES
+
+                    document.addEventListener("DOMContentLoaded", function () {
+            cargarPaises();
+
+                       document.getElementById("pais").addEventListener("change", function () {
+            let idPais = this.value;
+            console.log("🔍 País seleccionado:", idPais); // Verificar el valor del ID
+            if (idPais) {
+                cargarProvincias(idPais);
+            } else {
+                console.warn("⚠️ No se ha seleccionado un país.");
+            }
+        });
+
+
+
+            document.getElementById("provincia").addEventListener("change", function () {
+                let idProvincia = this.value;
+                cargarCantones(idProvincia);
+            });
+
+            document.getElementById("canton").addEventListener("change", function () {
+                let idCanton = this.value;
+                cargarDistritos(idCanton);
+            });
+        });
+
+                      function cargarPaises() {
+            fetch("/Ubicaciones/ObtenerPaises")
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Datos de países recibidos:", data); // Verifica qué devuelve la API
+                    let select = document.getElementById("pais");
+                    select.innerHTML = '<option value="">Seleccione un país</option>';
+                    data.forEach(pais => {
+                        select.innerHTML += `<option value="${pais.id}">${pais.nombre}</option>`; // Usa los nombres correctos
+                    });
+                })
+                .catch(error => console.error("❌ Error al cargar países:", error));
+        }
+
+
+
+                              function cargarProvincias(idPais) {
+            let select = document.getElementById("provincia");
+            select.innerHTML = '<option value="">Seleccione una provincia</option>';
+            document.getElementById("canton").innerHTML = '<option value="">Seleccione un cantón</option>';
+            document.getElementById("distrito").innerHTML = '<option value="">Seleccione un distrito</option>';
+
+            if (!idPais) {
+                console.error("❌ No se ha recibido un ID de país válido.");
+                return;
+            }
+
+            console.log(` Buscando provincias para el país ID: ${idPais}`);
+
+            fetch(`/Ubicaciones/ObtenerProvincias?idPais=${idPais}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Provincias recibidas:", data);
+                    if (data.length > 0) {
+                        select.innerHTML += data.map(prov => `<option value="${prov.id}">${prov.nombre}</option>`).join('');
+                        select.disabled = false;
+                    } else {
+                        console.warn(" No se encontraron provincias para este país.");
+                        select.disabled = true;
+                    }
+                })
+                .catch(error => console.error(" Error al cargar provincias:", error));
+        }
+
+
+
+               function cargarCantones(idProvincia) {
+            let select = document.getElementById("canton");
+            select.innerHTML = '<option value="">Seleccione un cantón</option>';
+            document.getElementById("distrito").innerHTML = '<option value="">Seleccione un distrito</option>';
+
+            if (!idProvincia) {
+                console.error(" No se ha recibido un ID de provincia válido.");
+                return;
+            }
+
+            console.log(` Buscando cantones para la provincia ID: ${idProvincia}`);
+
+            fetch(`/Ubicaciones/ObtenerCantones?idProvincia=${idProvincia}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(" Cantones recibidos:", data);
+                    if (data.length > 0) {
+                        select.innerHTML += data.map(canton => `<option value="${canton.id}">${canton.nombre}</option>`).join('');
+                        select.disabled = false;
+                    } else {
+                        console.warn(" No se encontraron cantones para esta provincia.");
+                        select.disabled = true;
+                    }
+                })
+                .catch(error => console.error("❌ Error al cargar cantones:", error));
+        }
+
+
+        function cargarDistritos(idCanton) {
+            let select = document.getElementById("distrito");
+            select.innerHTML = '<option value="">Seleccione un distrito</option>';
+
+            if (idCanton) {
+                fetch(`/Ubicaciones/ObtenerDistritos?idCanton=${idCanton}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        select.innerHTML += data.map(distrito => `<option value="${distrito.idUbicacion}">${distrito.nombre}</option>`).join('');
+                        select.disabled = false;
+                    })
+                    .catch(error => console.error("Error al cargar distritos:", error));
+            } else {
+                select.disabled = true;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

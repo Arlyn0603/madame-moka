@@ -1,0 +1,789 @@
+﻿@{
+    ViewData["Title"] = "Menú";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title>Madame moka</title>
+    <link rel="stylesheet" href="~/css/stylesmyp.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="container-logo">
+                    <i> <img src="~/img/logo madame moka.png" alt=""></i>
+                    <h1 class="logo"><a href="">Madame Moka</a></h1>
+                </div>
+                <div class="container-house">
+                    <a href="/home/index">
+                        <i class="fa-solid fa-house"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-shopping-cart">
+                    <a href="/carrito/carrito">
+                        <i class="fa-solid fa-shopping-cart"></i>
+                    </a>
+                </div>
+
+
+                <div class="container-user">
+                    <a href="/usuario/usuario">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+            
+        <nav class="scroll-menu">
+            <ul>
+
+                <li><a href="#cafes-calientes">Cafés Calientes</a></li>
+                <li><a href="#cafe-frio">Cafés Fríos</a></li>
+                <li><a href="#bebidas-calientes">Bebidas Calientes</a></li>
+                <li><a href="#bebidas-frias">Bebidas Frías</a></li>
+                <li><a href="#tostadas">Tostadas</a></li>
+                <li><a href="#ensaladas">Ensalada</a></li>
+                <li><a href="#sandwich">Sandwiches</a></li>
+                <li><a href="#reposteria">Reposteria</a></li>
+                <li><a href="#ninos">Menu de niños</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Cafe Caliente -->
+        <section id="cafes-calientes" class="container menu-section">
+            <h2 class="heading-2">Cafés Calientes</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Cafe americano.jpg" alt="Café Americano">
+                    </div>
+                    <div class="menu-details">
+                        <h3 class="product-name">Café Americano</h3>
+                        <p class="product-description">Un café fuerte y aromático.</p>
+                        <p class="menu-price">₡1.600</p>
+
+                    </div>
+                </div>
+
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Mocachiccno.jpg" alt="Mocachiccno">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Mocachiccno</h3>
+                        <p>Combinación de espresso, leche y chocolate.</p>
+                        <p class="menu-price">₡2.000</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Cappuccino.jpg" alt="Capuchino">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Capuchino</h3>
+                        <p>Espuma de leche con espresso.</p>
+                        <p class="menu-price">₡1.950</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Espresso.jpg" alt="Espresso">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Espresso</h3>
+                        <p>Espresso </p>
+                        <p class="menu-price">₡1.000</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Cafe-con-leche.jpg" alt="cafe-milk">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Café con leche</h3>
+                        <p>café con leche</p>
+                        <p class="menu-price">₡1.800</p>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/cafe-irish.jpg" alt="cafe-irish">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Irlandes</h3>
+                        <p>café negro con whiskey irlandés Jameson y crema chantilly </p>
+                        <p class="menu-price">₡2.600</p>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/cafe-ingles.jpg" alt="cafe-ingles">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Ingles</h3>
+                        <p>Suave combinación de café negro con abundante leche caliente </p>
+                        <p class="menu-price">₡2.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Cafe frio -->
+        <section id="cafe-frio" class="container menu-section">
+            <h2 class="heading-2">Cafés Frios</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/cafe-helado.jpg" alt="Café cafe-helado">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Café helado</h3>
+                        <p>Delicioso café frío con un toque de leche cremosa, servido con hielo para una experiencia suave y refrescante</p>
+                        <p class="menu-price">₡2.000</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Affogato.jpg" alt="Affogato">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Affogato</h3>
+                        <p>helado de vainilla con doble espresso y licor de café</p>
+                        <p class="menu-price">₡1.900</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Iced Mochaccinoo.jpg" alt="Iced Mochaccinoo
+                            ">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Iced Mochaccinoo</h3>
+                        <p>Espresso, hielo, leche y chocolate</p>
+                        <p class="menu-price">₡2.200</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Iced Latte.jpg" alt="Iced Latte">                            ">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Iced Latte</h3>
+                        <p>Espresso, hielo y leche </p>
+                        <p class="menu-price">₡1.800</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Macchiato frio de caramelo.jpg" alt="Macchiato frio de caramelo">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Macchiato frio de caramelo</h3>
+                        <p>Espresso, hielo, leche, caramelo y nuez moscada</p>
+                        <p class="menu-price">₡2.200</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Bebidas calientes -->
+        <section id="bebidas-calientes" class="container menu-section">
+            <h2 class="heading-2">Bebidas Calientes</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Té negro.jpg" alt="Té negro">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Té negro</h3>
+                        <p>Té negro</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Té Canela.jpg" alt="Té Canela">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Té de Canela</h3>
+                        <p>Té de Canela</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Té de menta.jpg" alt="Té Menta">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Té de Menta</h3>
+                        <p>Té de Menta</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Té de manzanilla.jpg" alt="Té de Mansanilla">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Té de manzanilla</h3>
+                        <p>Té de manzanilla</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Té de frutos.jpg" alt="Té de frutos rojos">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Té de frutos rojos</h3>
+                        <p>Té de frutos rojos</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Golden Milk.jpg" alt="Golden Milk">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Golden Milk</h3>
+                        <p>Con leche de almendras y endulzado con miel de abeja</p>
+                        <p class="menu-price">₡2.500</p>
+                    </div>
+                </div>
+                <!-- Producto 7 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Chocolate Caliente.jpg" alt="Chocolate Caliente">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Chocolate Caliente</h3>
+                        <p>Con crema chantilly y marshmallows</p>
+                        <p class="menu-price">₡2.000</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bebidas frias -->
+        <section id="bebidas-frias" class="container menu-section">
+            <h2 class="heading-2">Bebidas Frías</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Limonada con hierbabuena.jpg" alt="Limonada-hierbabuena">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Limonada con hierbabuena</h3>
+                        <p>Bebida preparada con limon e hierbabuena</p>
+                        <p class="menu-price">₡1.700</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Piña con Albaca.jpg" alt="piña">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Piña con albahaca</h3>
+                        <p>Bebida preparada con piña y albahaca</p>
+                        <p class="menu-price">₡1.600</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Frutos rojos.jpg" alt="frutos">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Frutos rojos</h3>
+                        <p>Bebida preparada con fresas, arándanos y frambuesas </p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Fresa.jpg" alt="Fresa">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Fresa</h3>
+                        <p>Bebida preparada con fresa</p>
+                        <p class="menu-price">₡1.750</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Maracuya.jpg" alt="Maracuya">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Maracuya</h3>
+                        <p>Bebida preparada con maracuya</p>
+                        <p class="menu-price">₡1.600</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Tostadas -->
+
+        <section id="tostadas" class="container menu-section">
+            <h2 class="heading-2">Tostadas</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Tostadas Caprese.jpg" alt="Tostadas Caprese">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Tostada Caprese</h3>
+                        <p>Pan de masa madre con queso mozzarella, pesto, albahaca y tomate.</p>
+                        <p class="menu-price">₡3.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Tostadas de queso y hongos.jpg" alt="Tostadas de queso y hongos">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Tostada de queso y hongos</h3>
+                        <p>Pan de masa madre con hongos frescos y queso mozzarella</p>
+                        <p class="menu-price">₡3.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Tostada aguacate y tomate.jpg" alt="Tostada de aguacate y tomate">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Tostada de aguacate y tomate cherry</h3>
+                        <p>
+                            Aguacate y tomate cherry rostizado,
+                            con cebolla, pan de masa madre
+                        </p>
+                        <p class="menu-price">₡3.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Tostadas francesas dulces.jpg" alt="Tostadas francesas dulces">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Tostadas francesas dulce</h3>
+                        <p>Pan brioche con una salsa de frutos rojos al vino tinto y crema chantilly</p>
+                        <p class="menu-price">₡4.950</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+            </div>
+        </section>
+        <!-- Ensaladas -->
+        <section id="ensaladas" class="container menu-section">
+            <h2 class="heading-2">Ensaladas</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Ensalada de Pollo y Arándanos.jpg" alt="Ensalada de Pollo y Arándanos">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Ensalada de Pollo y Arándanos</h3>
+                        <p>
+                            Ensalada de Pollo y Arándanos
+                            Con pollo a la plancha, lechuga, arándanos rojos deshidratados, fresas  y vinagre balsámico con infusión de menta
+                        </p>
+                        <p class="menu-price">₡5.900</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Ensalada de Tomate Rostizado.jpg" alt="Ensalada de Tomate Rostizado">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Ensalada de Tomate Rostizado</h3>
+                        <p>Aguacate, kale rizado, queso feta y tomate cherry rostizado.</p>
+                        <p class="menu-price">₡5.800</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Ensalada de camaron.jpg" alt="Ensalada de camaron">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Ensalada de camaron</h3>
+                        <p>camarones cocidos, aguacates,tomates cherry y lechuga</p>
+                        <p class="menu-price">₡1.500</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+        <!-- Sandwiches -->
+        <section id="sandwich" class="container menu-section">
+            <h2 class="heading-2">Sandwiches</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Sandwich Caprese.jpg" alt="Sandwich Caprese">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Sandwich Caprese</h3>
+                        <p>Sandwich de queso mozzarella, pesto, albahaca y tomate</p>
+                        <p class="menu-price">₡4.850</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/sandwich jamon y queso.jpg" alt="sandwich jamon y queso">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Sandwich jamon y queso</h3>
+                        <p>Queso mozzarella, jamon y lechuga</p>
+                        <p class="menu-price">₡4.850</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/sandwich de pollo.jpg" alt="sandwich de pollo">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Sandwich de pollo</h3>
+                        <p>Pollo, tomate y lechuga</p>
+                        <p class="menu-price">₡4.850</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/sandwich de carne.jpg" alt="sandwich de carne">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Sandwich de carne</h3>
+                        <p>Carbe mechada de res, tomate, lechuga y cebolla</p>
+                        <p class="menu-price">₡4.850</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Reposteria  -->
+        <section id="reposteria" class="container menu-section">
+            <h2 class="heading-2">Reposteria</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/quequenaranja.jpg" alt="queque naranja">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Queque de Naranja</h3>
+                        <p>Queque de naranja, con naranjas frescas</p>
+                        <p class="menu-price">₡2.200</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/rollos de canela.jpg" alt="rollos de canela">
+                    </div>
+                    <div class="menu-details">
+                        <h3>"Rollos de canela</h3>
+                        <p>Rollos de canela rellenos de canela y con leche de condensada por arriba</p>
+                        <p class="menu-price">₡1.000</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/crepa.jpg" alt="crepa">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Crepa</h3>
+                        <p>Crepa de Nutella,helado, fresa y nueces</p>
+                        <p class="menu-price">₡4.500</p>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Cheesecake.jpg" alt="Cheesecake">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Cheesecake</h3>
+                        <p>Con topping de frutos del bosque</p>
+                        <p class="menu-price">₡2.950</p>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/pie de limon.jpg" alt="Pie de limon">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Pie de limón</h3>
+                        <p>Pie de limón con limones frescos</p>
+                        <p class="menu-price">₡2.200</p>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/brownie con helado.jpg" alt="brownie con helado">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Brownie con helado</h3>
+                        <p>brownie con helado de vainilla, fresas y topping de chocolate</p>
+                        <p class="menu-price">₡3.250</p>
+                    </div>
+                </div>
+                <!-- Producto 7 -->
+
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/tortilla de queso.jpg" alt="tortilla de queso">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Tortilla de queso</h3>
+                        <p>Palmeada con queso y natill</p>
+                        <p class="menu-price">₡3.200</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Menu de niños -->
+        <section id="ninos" class="container menu-section">
+            <h2 class="heading-2">Menu de niños</h2>
+            <div class="menu-item">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Dedos de pollo.jpg" alt="Dedos de pollo">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Dedos de pollo</h3>
+                        <p>papas fritas, salsas e incluye refresco natural</p>
+                        <p class="menu-price">₡4.400</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Quesadilla de queso.jpg" alt="Quesadilla ">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Quesadilla </h3>
+                        <p>con papas e incluye el refresco natural </p>
+                        <p class="menu-price">₡4.400</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product">
+                    <div class="menu-img">
+                        <img src="~/img/Sándwich de jamón.jpg" alt="sandwich de jamon">
+                    </div>
+                    <div class="menu-details">
+                        <h3>Sandwich de Jamon y queso </h3>
+                        <p>
+                            acompañado con papas
+                            incluye refresco natural
+                        </p>
+                        <p class="menu-price">₡4.400</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+    </main>
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartPopup()">&times;</span>
+            <h3 id="modal-product-name"></h3>
+            <p id="modal-product-description"></p>
+            <p id="modal-product-price"></p>
+            <div class="quantity-container">
+                <button onclick="decreaseQuantity()">-</button>
+                <input type="number" id="quantity" value="1" min="1">
+                <button onclick="increaseQuantity()">+</button>
+            </div>
+            <button class="add-to-cart">
+                <i class="fa-solid fa-shopping-cart"></i>
+
+            </button>
+        </div>
+    </div>
+    <footer>
+
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/eventos/eventos">
+                    <img src="~/img/eventos.png" alt="eventos" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Eventos</h3>
+            </div>
+        </div>
+
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/Pickup/pedidos">
+                    <img src="~/img/pedidos.png" alt="pick up" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Pick Up</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/menu/menu">
+                    <img src="~/img/menu.png" alt="menu" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Menú</h3>
+            </div>
+        </div>
+        <div class="card-menu">
+            <div class="container-img">
+                <a href="/reservas/reservas">
+                    <img src="~/img/reserva.png" alt="reservas" />
+                </a>
+            </div>
+            <div class="content-card-product">
+                <h3>Reservas</h3>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const menu = document.querySelector(".scroll-menu");
+                    const links = document.querySelectorAll(".scroll-menu a");
+
+                    links.forEach(link => {
+                        link.addEventListener("click", function (e) {
+                            e.preventDefault();
+
+                            const targetId = this.getAttribute("href");
+                            const targetSection = document.querySelector(targetId);
+
+                            if (targetSection) {
+                                targetSection.scrollIntoView({ behavior: "smooth" });
+
+                                // Mueve el menú horizontalmente hacia el elemento seleccionado
+                                const menuItem = this.parentElement;
+                                const menuContainer = document.querySelector(".scroll-menu");
+                                const offset = menuItem.offsetLeft - (menuContainer.offsetWidth / 2) + (menuItem.offsetWidth / 2);
+
+                                menuContainer.scrollTo({ left: offset, behavior: "smooth" });
+                            }
+                        });
+                    });
+                });
+
+                function openCartPopup(name, description, price) {
+            document.getElementById("modal-product-name").innerText = name;
+            document.getElementById("modal-product-description").innerText = description;
+            document.getElementById("modal-product-price").innerText = price;
+
+            document.getElementById("cart-modal").style.display = "block";
+        }
+
+        function closeCartPopup() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+
+        /* Manejo de Cantidad */
+        function increaseQuantity() {
+            let quantityInput = document.getElementById("quantity");
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        function decreaseQuantity() {
+            let quantityInput = document.getElementById("quantity");
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+    </script>
+
+</body>
+</html>
